@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pokemon_id }} - Pokemon详情{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>正在加载宝可梦详情...</p>
+    </div>
+    
+    <div class="detail-content" id="detail-content" style="display: none;">
+        <a href="/" class="back-btn">← 返回列表</a>
+        
+        <div class="pokemon-detail-card">
+            <div class="detail-header">
+                <div class="detail-image-container">
+                    <img id="pokemon-image" class="detail-image" src="" alt="">
+                </div>
+                <div class="detail-info">
+                    <span class="detail-id" id="pokemon-id">#001</span>
+                    <h1 class="detail-name" id="pokemon-name">Bulbasaur</h1>
+                    <p class="detail-name-zh" id="pokemon-name-zh"></p>
+                    <p class="detail-genus" id="pokemon-genus"></p>
+                    <div class="detail-types" id="pokemon-types"></div>
+                </div>
+            </div>
+            
+            <div class="detail-sections">
+                <section class="detail-section">
+                    <h2 class="section-title">基本信息</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">身高</span>
+                            <span class="info-value" id="pokemon-height">0.7 m</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">体重</span>
+                            <span class="info-value" id="pokemon-weight">6.9 kg</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="detail-section">
+                    <h2 class="section-title">能力值</h2>
+                    <div class="stats-container" id="stats-container"></div>
+                </section>
+                
+                <section class="detail-section">
+                    <h2 class="section-title">描述</h2>
+                    <p class="description-text" id="pokemon-description"></p>
+                </section>
+                
+                <section class="detail-section" id="evolution-section" style="display: none;">
+                    <h2 class="section-title">进化链</h2>
+                    <div class="evolution-chain" id="evolution-chain"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const pokemonId = {{ pokemon_id }};
+    const typeColors = {{ type_colors | tojson }};
+    const typeNamesZh = {{ type_names_zh | tojson }};
+</script>
+{% endblock %}
