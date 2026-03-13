@@ -1,6 +1,10 @@
 # Pokedex - 第一代宝可梦图鉴
 
-一个展示第一代151只宝可梦的Web应用程序，使用Python 3.10 + FastAPI开发，数据来源于PokeAPI。
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+一个展示第一代151只宝可梦的Web应用程序，使用 Python 3.10 + FastAPI 开发，数据来源于 PokeAPI。
 
 ## 功能特性
 
@@ -33,12 +37,14 @@
 
 ## 技术栈
 
-- **Python**: 3.10
-- **Web框架**: FastAPI
-- **HTTP客户端**: httpx (异步)
-- **模板引擎**: Jinja2
-- **包管理**: uv
-- **数据源**: [PokeAPI](https://pokeapi.co/)
+| 技术 | 说明 |
+|------|------|
+| Python 3.10 | 编程语言 |
+| FastAPI | Web框架 |
+| httpx | 异步HTTP客户端 |
+| Jinja2 | 模板引擎 |
+| uv | 包管理器 |
+| PokeAPI | 数据源 |
 
 ## 项目结构
 
@@ -72,7 +78,7 @@ pokedex/
 │       └── detail.html      # 详情页
 ```
 
-## 本地部署和运行
+## 快速开始
 
 ### 前置要求
 
@@ -92,27 +98,20 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ### 运行步骤
 
-1. **进入项目目录**
 ```bash
+# 1. 克隆项目
+git clone https://github.com/luwenkai1997/pokedex.git
 cd pokedex
-```
 
-2. **安装Python 3.10**（如未安装）
-```bash
+# 2. 安装Python 3.10（如未安装）
 uv python install 3.10
-```
 
-3. **同步依赖**
-```bash
+# 3. 同步依赖
 uv sync
-```
 
-4. **启动开发服务器**
-```bash
+# 4. 启动开发服务器
 uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
-
-5. **访问应用**
 
 打开浏览器访问: http://localhost:8000
 
@@ -148,18 +147,14 @@ uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ## 开发说明
 
-### 添加新依赖
 ```bash
+# 添加新依赖
 uv add <package-name>
-```
 
-### 运行测试
-```bash
+# 运行测试
 uv run pytest
-```
 
-### 代码格式化
-```bash
+# 代码格式化
 uv run ruff format .
 ```
 
@@ -169,4 +164,4 @@ uv run ruff format .
 
 ## License
 
-MIT License
+[MIT License](LICENSE)
